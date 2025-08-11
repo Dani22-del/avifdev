@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Music Player</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        font-family: Arial, sans-serif;
+      }
+      button {
+        background: #ff4081;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      button:hover {
+        background: #e73370;
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="bgMusic" src="assets/img/final.mp3" loop></audio>
+    <button id="toggleMusic">Play</button>
+
+    <script>
+      const audio = document.getElementById("bgMusic");
+      const btn = document.getElementById("toggleMusic");
+
+      btn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          btn.textContent = "Pause";
+        } else {
+          audio.pause();
+          btn.textContent = "Play";
+        }
+      });
+
+      // Terima pesan dari halaman utama
+      window.addEventListener("message", (event) => {
+        if (event.data === "startMusic") {
+          audio.play();
+          btn.textContent = "Pause";
+        }
+      });
+    </script>
+  </body>
+</html>

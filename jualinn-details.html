@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>jualinn Details</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+    <style>
+      .portfolio-details-slider .swiper-slide img {
+        width: 100%;
+        height: 520px; /* atur tinggi sesuai kebutuhan */
+        object-fit: cover; /* crop supaya proporsi tetap */
+        border-radius: 8px; /* opsional, biar sudutnya rapi */
+      }
+      /* Parallax Video Background */
+      .parallax {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .parallax-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* video utuh */
+        transform: translate(-50%, -50%);
+        background: black; /* supaya area kosong jadi hitam */
+        z-index: 1;
+      }
+
+      .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* Overlay gelap supaya teks terlihat */
+        z-index: 2;
+      }
+
+      /* Konten di atas video */
+      .parallax .content {
+        position: relative;
+        z-index: 3;
+      }
+      .testimonial-card {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 12px;
+        overflow: hidden;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      .testimonial-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .testimonial-avatar {
+        width: 80px !important;
+        height: 80px !important;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .testimonial-image {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100%;
+        object-fit: contain !important;
+        object-position: center;
+        border-radius: 10px;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        margin: 0 auto 15px;
+      }
+
+      .owl-carousel .owl-item img.testimonial-image {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+        max-width: 100%;
+      }
+
+      .owl-carousel .owl-stage {
+        display: flex;
+      }
+      .owl-carousel .owl-item {
+        display: flex;
+        height: auto;
+      }
+      .owl-carousel .testimonial-card {
+        height: 100%;
+        flex: 1 1 auto;
+      }
+      /* Owl Carousel Controls */
+      .owl-carousel .owl-nav button.owl-prev,
+      .owl-carousel .owl-nav button.owl-next {
+        position: absolute;
+        top: 40%;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        padding: 5px 10px;
+        font-size: 18px;
+        z-index: 5;
+      }
+
+      .owl-carousel .owl-nav button.owl-prev {
+        left: -40px;
+      }
+      .owl-carousel .owl-nav button.owl-next {
+        right: -40px;
+      }
+      /* Tablet (max-width: 992px) */
+      @media (max-width: 992px) {
+        .parallax-video {
+          object-fit: cover; /* isi penuh layar */
+        }
+        .testimonial-image {
+          min-height: 40vh; /* minimal 40% tinggi layar */
+          max-height: 450px; /* batas atas supaya tidak terlalu tinggi */
+        }
+        .portfolio-details-slider .swiper-slide img {
+          height: 50vh; /* setengah tinggi layar */
+          max-height: 420px; /* batasi agar tidak terlalu besar */
+        }
+      }
+
+      /* HP besar (max-width: 768px) */
+      @media (max-width: 768px) {
+        #services {
+          padding: 3rem 1rem;
+        }
+        .parallax-video {
+          object-fit: cover;
+        }
+        .testimonial-card {
+          padding: 15px;
+        }
+        .testimonial-avatar {
+          width: 70px !important;
+          height: 70px !important;
+        }
+        .testimonial-image {
+          min-height: 45vh; /* sedikit lebih tinggi di HP besar */
+          max-height: 480px;
+        }
+        .owl-carousel .owl-nav button.owl-prev {
+          left: -25px;
+        }
+        .owl-carousel .owl-nav button.owl-next {
+          right: -25px;
+        }
+        .portfolio-details-slider .swiper-slide img {
+          height: 45vh; /* proporsional di layar kecil */
+          max-height: 350px;
+        }
+      }
+
+      /* HP kecil (max-width: 480px) */
+      @media (max-width: 480px) {
+        .parallax-video {
+          height: 250px;
+          object-fit: cover; /* penuhi layar */
+        }
+        .testimonial-card {
+          padding: 10px;
+        }
+        .testimonial-avatar {
+          width: 60px !important;
+          height: 60px !important;
+        }
+        .testimonial-image {
+          min-height: 35vh; /* menyesuaikan layar kecil */
+          max-height: 300px;
+        }
+        .testimonial-name {
+          font-size: 1rem;
+          margin-bottom: 10px;
+        }
+        .portfolio-details-slider .swiper-slide img {
+          height: 40vh;
+          max-height: 300px;
+        }
+      }
+      header.header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: transparent;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        z-index: 10;
+      }
+
+      /* state saat di‐scroll */
+      header.header.scrolled {
+        position: fixed; /* atau tetap sticky */
+        background: linear-gradient(135deg, #210481 0%, #3c07ae 100%);
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+      }
+      /* Hero sebagai background CSS */
+      section#hero {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-size: cover;
+      }
+
+      /* Geser konten hero sedikit ke bawah agar tak tertutup header */
+      section#hero .container {
+        padding-top: 80px; /* sesuaikan dengan tinggi header Anda */
+      }
+    </style>
+  </head>
+
+  <body class="portfolio-details-page">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
+      >
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">AviFolio</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li>
+              <a href="index.html" class="menu-link">Home<br /></a>
+            </li>
+            <li><a href="index.html#about" class="menu-link">About</a></li>
+            <li>
+              <a href="index.html#services" class="menu-link">Services</a>
+            </li>
+            <li>
+              <a href="#portfolio-details" class="active menu-link"
+                >Portfolio</a
+              >
+            </li>
+            <li><a href="#testi" class="menu-link">Testimonial</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </header>
+    <iframe
+      src="player.html"
+      id="musicFrame"
+      style="
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        width: 150px;
+        height: 50px;
+        border: none;
+        z-index: 999;
+        background: transparent;
+      "
+    ></iframe>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <section id="hero" class="hero section dark-background parallax">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="parallax-video">
+          <source src="assets/img/rainbow.mp4" type="video/mp4" />
+          Browser kamu tidak mendukung video HTML5.
+        </video>
+
+        <!-- Overlay Gelap untuk teks terbaca -->
+        <div class="video-overlay"></div>
+        <div
+          class="container d-flex flex-column align-items-center justify-content-center text-center"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <h2>Hi, I'm <span style="color: rgb(132, 255, 0)">Avif</span></h2>
+
+          <p>
+            <span
+              class="typed"
+              data-typed-items="Web Developer, Freelancer, SEO"
+            ></span>
+          </p>
+        </div>
+      </section>
+      <!-- Page Title -->
+      <div class="page-title" data-aos="fade">
+        <div
+          class="container d-lg-flex justify-content-between align-items-center"
+        >
+          <h1 class="mb-2 mb-lg-0">Portfolio Details</h1>
+          <nav class="breadcrumbs">
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li class="current">Portfolio Details</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      <!-- End Page Title -->
+
+      <!-- Portfolio Details Section -->
+      <section id="portfolio-details" class="portfolio-details section">
+        <div class="container" data-aos="fade-up">
+          <div class="portfolio-details-slider swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "navigation": {
+                  "nextEl": ".swiper-button-next",
+                  "prevEl": ".swiper-button-prev"
+                },
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                }
+              }
+            </script>
+            <div class="swiper-wrapper align-items-center">
+              <div class="swiper-slide">
+                <img src="assets/img/portfolio/porto-tim (3).png" alt="" />
+              </div>
+
+              <div class="swiper-slide">
+                <img src="assets/img/portfolio/porto-tim (2).png" alt="" />
+              </div>
+
+              <div class="swiper-slide">
+                <img src="assets/img/portfolio/porto-tim (1).png" alt="" />
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <div class="row justify-content-between gy-4 mt-4">
+            <div class="col-lg-8" data-aos="fade-up">
+              <div class="portfolio-description">
+                <h2>jualinn.com</h2>
+                <p>
+                  Pada fitur <strong>Edit Order</strong>, sistem memanfaatkan
+                  dua sumber data utama:<br />
+                  <strong>1. Database internal</strong> → mengambil detail order
+                  yang sudah ada (produk, qty, varian, harga satuan, dll.).<br />
+                  <strong>2. API KiriminAja</strong> → menghitung ulang ongkir
+                  dan biaya COD berdasarkan wilayah tujuan dan parameter
+                  pengiriman (kurir, berat total, dll.).
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+              <div class="portfolio-info">
+                <h3>Project information</h3>
+                <ul>
+                  <li><strong>Category</strong>Team</li>
+                  <li><strong>Project date</strong> 8 Agustus, 2025</li>
+                  <li>
+                    <strong>Profile Sribu</strong>
+                    <a
+                      href="https://www.sribu.com/id/users/AvifFirdaus"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Avif Sribu
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section Parallax dengan Video -->
+      <section id="testi" class="testi section py-5 bg-light parallax">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="parallax-video">
+          <source src="assets/img/rasi.mp4" type="video/mp4" />
+          Browser kamu tidak mendukung video HTML5.
+        </video>
+
+        <!-- Overlay Gelap untuk teks terbaca -->
+        <div class="video-overlay"></div>
+
+        <!-- Judul -->
+        <div
+          class="container section-title text-center mb-4 content"
+          data-aos="fade-up"
+        >
+          <h2 style="color: white">Testimonial</h2>
+        </div>
+
+        <!-- Carousel -->
+        <div class="container content">
+          <div class="owl-carousel testimonial-carousel">
+            <!-- Item 1 -->
+            <div class="card testimonial-card text-center">
+              <div class="card-body">
+                <img
+                  src="assets/img/portfolio/testidian.png"
+                  class="testimonial-avatar"
+                  alt="Avatar Dian"
+                />
+                <h4 class="testimonial-name">Dian</h4>
+                <img
+                  src="assets/img/portfolio/testi1.jpeg"
+                  class="testimonial-image"
+                  alt="Testimoni Dian"
+                />
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="card testimonial-card text-center">
+              <div class="card-body">
+                <img
+                  src="assets/img/portfolio/testidian.png"
+                  class="testimonial-avatar"
+                  alt="Avatar Dian"
+                />
+                <h4 class="testimonial-name">Dian</h4>
+                <img
+                  src="assets/img/portfolio/testi.png"
+                  class="testimonial-image"
+                  alt="Testimoni Dian 2"
+                />
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="card testimonial-card text-center">
+              <div class="card-body">
+                <img
+                  src="assets/img/portfolio/testipurwa.png"
+                  class="testimonial-avatar"
+                  alt="Avatar Purwanti"
+                />
+                <h4 class="testimonial-name">Purwanti</h4>
+                <img
+                  src="assets/img/portfolio/testipurwa1.png"
+                  class="testimonial-image"
+                  alt="Testimoni Purwanti"
+                />
+              </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="card testimonial-card text-center">
+              <div class="card-body">
+                <img
+                  src="assets/img/portfolio/testipurwa.png"
+                  class="testimonial-avatar"
+                  alt="Avatar Purwanti"
+                />
+                <h4 class="testimonial-name">Purwanti</h4>
+                <img
+                  src="assets/img/portfolio/testipurwa2.png"
+                  class="testimonial-image"
+                  alt="Testimoni Purwanti 2"
+                />
+              </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="card testimonial-card text-center">
+              <div class="card-body">
+                <img
+                  src="assets/img/portfolio/default.jpg"
+                  class="testimonial-avatar"
+                  alt="Avatar Raplim"
+                />
+                <h4 class="testimonial-name">Raplim</h4>
+                <img
+                  src="assets/img/portfolio/testiraplim.png"
+                  class="testimonial-image"
+                  alt="Testimoni Raplim"
+                />
+              </div>
+            </div>
+            <!-- Item 6 -->
+            <div class="card testimonial-card text-center">
+              <div class="card-body">
+                <img
+                  src="assets/img/portfolio/default.jpg"
+                  class="testimonial-avatar"
+                  alt="Avatar Widyanila"
+                />
+                <h4 class="testimonial-name">Widyanila</h4>
+                <img
+                  src="assets/img/portfolio/testiwidya.png"
+                  class="testimonial-image"
+                  alt="Testimoni Widyanila"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- /Portfolio Details Section -->
+    </main>
+
+    <footer id="footer" class="footer accent-background">
+      <div class="container">
+        <div class="copyright text-center">
+          ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          , made with
+          <i class="bi bi-heart-fill text-danger"></i>
+          by Avif
+        </div>
+
+        <!-- <div class="social-links d-flex justify-content-center mt-2">
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div> -->
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".testimonial-carousel").owlCarousel({
+          loop: true,
+          margin: 20,
+          autoplay: true,
+          autoplayTimeout: 4000,
+          smartSpeed: 800,
+          responsive: {
+            0: { items: 1 },
+            768: { items: 2 },
+            1024: { items: 3 },
+          },
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const header = document.getElementById("header");
+        const changePoint = 50; // scrollY threshold dalam piksel
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > changePoint) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        });
+      });
+    </script>
+    <script>
+      const frame = document.getElementById("musicFrame");
+
+      document.addEventListener("click", function startMusicOnce() {
+        frame.contentWindow.postMessage("startMusic", "*");
+        document.removeEventListener("click", startMusicOnce);
+      });
+    </script>
+  </body>
+</html>
