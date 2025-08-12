@@ -60,7 +60,7 @@
         left: 50%;
         width: 100%;
         height: 100%;
-        object-fit: contain; /* video utuh */
+        object-fit: cover; /* video utuh */
         transform: translate(-50%, -50%);
         background: black; /* supaya area kosong jadi hitam */
         z-index: 1;
@@ -210,7 +210,7 @@
       /* HP kecil (max-width: 480px) */
       @media (max-width: 480px) {
         .parallax-video {
-          height: 250px;
+          height: 100%;
           object-fit: cover; /* penuhi layar */
         }
         .testimonial-card {

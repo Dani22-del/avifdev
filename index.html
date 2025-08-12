@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,7 +53,7 @@
         left: 50%;
         width: 100%;
         height: 100%;
-        object-fit: contain; /* video utuh */
+        object-fit: cover; /* video utuh */
         transform: translate(-50%, -50%);
         background: black; /* supaya area kosong jadi hitam */
         z-index: 1;
@@ -202,7 +203,7 @@
       /* HP kecil (max-width: 480px) */
       @media (max-width: 480px) {
         .parallax-video {
-          height: 250px;
+          height: 100%;
           object-fit: cover; /* penuhi layar */
         }
         .testimonial-card {
@@ -697,13 +698,14 @@ section#hero .container {
                     class="details-link"
                     ><i class="bi bi-link-45deg"></i
                   ></a>
-                  <a
+                 <a
                     href="https://github.com/Dani22-del/website-beasiswa" 
                     title="View on GitHub"
-                    class="github-link"
+                    style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255,255,255,0.2); border-radius: 50%; color: rgb(9, 104, 200); font-size: 20px; margin: 0 4px;"
                   >
-                    <i class="bi bi-github" style="font-size:28px;"></i>
+                    <i class="bi bi-github"></i>
                   </a>
+
                 </div>
               </div>
               <!-- End Portfolio Item -->
@@ -736,12 +738,13 @@ section#hero .container {
                     ><i class="bi bi-link-45deg"></i
                   ></a>
                    <a
-                    href="https://github.com/Dani22-del/website-surat" 
-                    title="View on GitHub"
-                    class="github-link"
-                  >
-                    <i class="bi bi-github" style="font-size:28px;"></i>
-                  </a>
+                      href="https://github.com/Dani22-del/website-beasiswa" 
+                      title="View on GitHub"
+                      style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255,255,255,0.2); border-radius: 50%; color: rgb(9, 104, 200); font-size: 20px; margin: 0 4px;"
+                    >
+                      <i class="bi bi-github"></i>
+                    </a>
+
                 </div>
               </div>
               <!-- End Portfolio Item -->
