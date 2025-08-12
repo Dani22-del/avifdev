@@ -262,6 +262,33 @@
       section#hero .container {
         padding-top: 80px; /* sesuaikan dengan tinggi header Anda */
       }
+      /* Tombol musik di navbar */
+      .btn-music {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 28px;
+        color: #ff4081;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin-right: 10px;
+        transition: transform 0.2s ease, color 0.2s ease;
+      }
+
+      .btn-music:hover {
+        transform: scale(1.1);
+        color: #e73370;
+      }
+
+      /* Mobile lebih kecil */
+      @media (max-width: 576px) {
+        .btn-music {
+          font-size: 24px;
+          margin-right: 5px;
+        }
+      }
     </style>
   </head>
 
@@ -275,7 +302,10 @@
           <!-- <img src="assets/img/logo.png" alt=""> -->
           <h1 class="sitename">AviFolio</h1>
         </a>
-
+        <!-- Tombol Musik -->
+        <button id="toggleMusic" class="btn-music" aria-label="Toggle Music">
+          <i class="bi bi-play-circle"></i>
+        </button>
         <nav id="navmenu" class="navmenu">
           <ul>
             <li>
@@ -296,21 +326,7 @@
         </nav>
       </div>
     </header>
-    <iframe
-      src="player.html"
-      id="musicFrame"
-      style="
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        width: 150px;
-        height: 50px;
-        border: none;
-        z-index: 999;
-        background: transparent;
-      "
-    ></iframe>
-
+    <audio id="bgMusic" src="assets/img/final.mp3" loop></audio>
     <main class="main">
       <!-- Hero Section -->
       <section id="hero" class="hero section dark-background parallax">
@@ -335,6 +351,13 @@
               data-typed-items="Web Developer, Freelancer, SEO"
             ></span>
           </p>
+          <a
+            href="https://bit.ly/CV_Avif"
+            target="_blank"
+            class="btn btn-primary px-4 py-2 mt-3"
+          >
+            DOWNLOAD MY CV
+          </a>
         </div>
       </section>
       <!-- Page Title -->
@@ -642,11 +665,18 @@
       });
     </script>
     <script>
-      const frame = document.getElementById("musicFrame");
+      const audio = document.getElementById("bgMusic");
+      const btnMusic = document.getElementById("toggleMusic");
+      const iconMusic = btnMusic.querySelector("i");
 
-      document.addEventListener("click", function startMusicOnce() {
-        frame.contentWindow.postMessage("startMusic", "*");
-        document.removeEventListener("click", startMusicOnce);
+      btnMusic.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          iconMusic.classList.replace("bi-play-circle", "bi-pause-circle");
+        } else {
+          audio.pause();
+          iconMusic.classList.replace("bi-pause-circle", "bi-play-circle");
+        }
       });
     </script>
   </body>

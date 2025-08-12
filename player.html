@@ -3,42 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <title>Music Player</title>
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
     <style>
       body {
         margin: 0;
         padding: 0;
         background: transparent;
-        font-family: Arial, sans-serif;
       }
-      button {
-        background: #ff4081;
-        color: white;
+
+      /* Tombol ikon */
+      #toggleMusic {
+        background: none;
         border: none;
-        padding: 8px 12px;
-        border-radius: 6px;
         cursor: pointer;
-        font-size: 14px;
+        font-size: 28px;
+        color: #ff4081;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        transition: transform 0.2s ease;
       }
-      button:hover {
-        background: #e73370;
+
+      #toggleMusic:hover {
+        transform: scale(1.1);
+        color: #e73370;
+      }
+
+      /* Mobile lebih kecil */
+      @media (max-width: 576px) {
+        #toggleMusic {
+          font-size: 24px;
+        }
       }
     </style>
   </head>
   <body>
     <audio id="bgMusic" src="assets/img/final.mp3" loop></audio>
-    <button id="toggleMusic">Play</button>
+    <button id="toggleMusic"><i class="bi bi-play-circle"></i></button>
 
     <script>
       const audio = document.getElementById("bgMusic");
       const btn = document.getElementById("toggleMusic");
+      const icon = btn.querySelector("i");
 
       btn.addEventListener("click", () => {
         if (audio.paused) {
           audio.play();
-          btn.textContent = "Pause";
+          icon.classList.replace("bi-play-circle", "bi-pause-circle");
         } else {
           audio.pause();
-          btn.textContent = "Play";
+          icon.classList.replace("bi-pause-circle", "bi-play-circle");
         }
       });
 
@@ -46,7 +65,7 @@
       window.addEventListener("message", (event) => {
         if (event.data === "startMusic") {
           audio.play();
-          btn.textContent = "Pause";
+          icon.classList.replace("bi-play-circle", "bi-pause-circle");
         }
       });
     </script>

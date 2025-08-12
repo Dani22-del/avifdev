@@ -329,7 +329,64 @@ section#hero .container {
         transform: translateY(-4px);
       }
       
-      
+     /* Tombol musik di navbar */
+.btn-music {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  color: #ff4081;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-right: 10px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-music:hover {
+  transform: scale(1.1);
+  color: #e73370;
+}
+
+/* Mobile lebih kecil */
+@media (max-width: 576px) {
+  .btn-music {
+    font-size: 24px;
+    margin-right: 5px;
+  }
+}
+.circle-photo {
+  width: 100%;
+  max-width: 120px; /* default untuk HP */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+}
+
+.circle-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .circle-photo {
+    max-width: 150px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .circle-photo {
+    max-width: 180px;
+  }
+}
 
     </style>
   </head>
@@ -344,6 +401,10 @@ section#hero .container {
           <!-- <img src="assets/img/logo.png" alt=""> -->
           <h1 class="sitename">AviFolio</h1>
         </a>
+        <!-- Tombol Musik -->
+        <button id="toggleMusic" class="btn-music" aria-label="Toggle Music">
+          <i class="bi bi-play-circle"></i>
+        </button>
 
         <nav id="navmenu" class="navmenu">
           <ul>
@@ -359,22 +420,9 @@ section#hero .container {
         </nav>
       </div>
     </header>
-       <iframe
-  src="player.html"
-  id="musicFrame"
-  style="
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 150px;
-    height: 50px;
-    border: none;
-    z-index: 999;
-    background: transparent;
-  "
-        ></iframe>
+  
 
-
+    <audio id="bgMusic" src="assets/img/final.mp3" loop></audio>
 
     <main class="main">
       <!-- Hero Section -->
@@ -384,6 +432,12 @@ section#hero .container {
           <h2>Hi, I'm <span style="color: rgb(132, 255, 0)">Avif</span></h2>
 
     <p><span class="typed" data-typed-items="Web Developer, Freelancer, SEO"></span></p>
+         <a href="https://bit.ly/CV_Avif" 
+          target="_blank" 
+          class="btn btn-primary px-4 py-2 mt-3">
+          DOWNLOAD MY CV
+        </a>
+
   </div>
     </section>
 
@@ -396,15 +450,13 @@ section#hero .container {
           <div class="row gy-4">
             <div class="col-md-6">
               <div class="row justify-content-between gy-4">
-                <div class="col-lg-5">
-                  <img
-                    src="assets/img/Mochamad Avif Firdaus.jpeg"
-                    alt="Foto Avif"
-                    width="200px;"
-                    height="200px;"
-                    style="object-fit: cover"
-                    class="img-fluid rounded"
-                  />
+                <div class="col-lg-5 col-md-6 col-sm-8 mx-auto">
+                 <div class="circle-photo">
+                    <img
+                      src="assets/img/Mochamad Avif Firdaus.jpeg"
+                      alt="Foto Avif"
+                    />
+                  </div>
                 </div>
                 <div class="col-lg-7 about-info">
                   <p>
@@ -1254,12 +1306,20 @@ section#hero .container {
       });
     </script>
    <script>
-  const frame = document.getElementById("musicFrame");
+  const audio = document.getElementById("bgMusic");
+  const btnMusic = document.getElementById("toggleMusic");
+  const iconMusic = btnMusic.querySelector("i");
 
-  document.addEventListener("click", function startMusicOnce() {
-    frame.contentWindow.postMessage("startMusic", "*");
-    document.removeEventListener("click", startMusicOnce);
+  btnMusic.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      iconMusic.classList.replace("bi-play-circle", "bi-pause-circle");
+    } else {
+      audio.pause();
+      iconMusic.classList.replace("bi-pause-circle", "bi-play-circle");
+    }
   });
 </script>
+
   </body>
 </html>
